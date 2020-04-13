@@ -5,7 +5,6 @@ namespace Phpactor\Extension\CompletionRpc\Tests\Unit\Handler;
 use PHPUnit\Framework\TestCase;
 use Phpactor\Completion\Core\Completor;
 use Phpactor\Completion\Core\Suggestion;
-use Phpactor\Completion\Core\TypedCompletor;
 use Phpactor\Completion\Core\TypedCompletorRegistry;
 use Phpactor\Extension\CompletionRpc\Handler\CompleteHandler;
 use Phpactor\Extension\Rpc\Response\ReturnResponse;
@@ -25,7 +24,7 @@ class CompleteHandlerTest extends TestCase
     {
         $this->completor = $this->prophesize(Completor::class);
         $this->registry = new TypedCompletorRegistry([
-            new TypedCompletor($this->completor->reveal(), ['php'])
+            'php' => $this->completor->reveal(),
         ]);
     }
 

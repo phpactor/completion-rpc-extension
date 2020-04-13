@@ -4,6 +4,7 @@ namespace Phpactor\Extension\CompletionRpc\Handler;
 
 use Phpactor\Completion\Core\Suggestion;
 use Phpactor\Completion\Core\TypedCompletorRegistry;
+use Phpactor\Extension\Rpc\Response;
 use Phpactor\MapResolver\Resolver;
 use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\Response\ReturnResponse;
@@ -32,7 +33,7 @@ class CompleteHandler implements Handler
         return self::NAME;
     }
 
-    public function configure(Resolver $resolver)
+    public function configure(Resolver $resolver): void
     {
         $resolver->setRequired([
             self::PARAM_SOURCE,
@@ -44,7 +45,10 @@ class CompleteHandler implements Handler
         ]);
     }
 
-    public function handle(array $arguments)
+    /**
+     * @param array<string,mixed> $arguments
+     */
+    public function handle(array $arguments): Response
     {
         $suggestions = $this->registry->completorForType($arguments['type'])->complete(
             TextDocumentBuilder::create($arguments[self::PARAM_SOURCE])
