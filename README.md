@@ -1,4 +1,4 @@
 Completion RPC Extension
 ========================
 
-[![Build Status](https://travis-ci.org/phpactor/completion-rpc-extension.svg?branch=master)](https://travis-ci.org/phpactor/completion-rpc-extension)
+![CI](https://github.com/phpactor/completion-rpc-extension/workflows/CI/badge.svg)
