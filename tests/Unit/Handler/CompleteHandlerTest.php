@@ -44,13 +44,6 @@ class CompleteHandlerTest extends TestCase
         ]);
 
         $this->assertInstanceOf(ReturnResponse::class, $action);
-        $this->assertArraySubset([
-            [
-                'name' => 'aaa',
-            ],
-            [
-                'name' => 'bbb',
-            ],
-        ], $action->value()['suggestions']);
+        $this->assertCount(2, $action->value()['suggestions']);
     }
 }
