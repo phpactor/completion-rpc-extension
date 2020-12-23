@@ -1,9 +1,8 @@
 {
     "name": "phpactor/completion-rpc-extension",
+    "type": "phpactor-extension",
     "description": "RPC support for the Completion Extension",
     "license": "MIT",
-    "type": "phpactor-extension",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Daniel Leech",
@@ -16,10 +15,17 @@
         "phpactor/rpc-extension": "~0.1"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "phpactor/test-utils": "^1.0",
         "phpstan/phpstan": "~0.12.0",
-        "phpunit/phpunit": "^7.4",
-        "friendsofphp/php-cs-fixer": "^2.14",
-        "phpactor/test-utils": "^1.0"
+        "phpunit/phpunit": "^7.4"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.2.x-dev"
+        },
+        "phpactor.extension_class": "Phpactor\\Extension\\CompletionRpc\\CompletionRpcExtension"
     },
     "autoload": {
         "psr-4": {
@@ -31,12 +37,8 @@
             "Phpactor\\Extension\\CompletionRpc\\Tests\\": "tests/"
         }
     },
-    "extra": {
-        "phpactor.extension_class": "Phpactor\\Extension\\CompletionRpc\\CompletionRpcExtension",
-        "branch-alias": {
-            "dev-master": "0.2.x-dev"
-        }
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "integrate": [
             "vendor/bin/php-cs-fixer fix",
