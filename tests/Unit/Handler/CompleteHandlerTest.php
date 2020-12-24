@@ -20,7 +20,7 @@ class CompleteHandlerTest extends TestCase
      */
     private $completor;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->completor = $this->prophesize(Completor::class);
         $this->registry = new TypedCompletorRegistry([
