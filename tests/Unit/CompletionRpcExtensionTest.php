@@ -14,7 +14,7 @@ use Phpactor\Extension\Rpc\RpcExtension;
 
 class CompletionRpcExtensionTest extends TestCase
 {
-    public function testAddsCompletionHandler()
+    public function testAddsCompletionHandler(): void
     {
         $handler = $this->createRequestHandler();
         $response = $handler->handle(Request::fromNameAndParameters('complete', [

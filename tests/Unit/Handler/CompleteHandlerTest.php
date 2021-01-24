@@ -28,7 +28,7 @@ class CompleteHandlerTest extends TestCase
         ]);
     }
 
-    public function testHandler()
+    public function testHandler(): void
     {
         $handler = new CompleteHandler($this->registry);
         $this->completor->complete(

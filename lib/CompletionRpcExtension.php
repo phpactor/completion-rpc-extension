@@ -15,14 +15,14 @@ class CompletionRpcExtension implements Extension
     /**
      * {@inheritDoc}
      */
-    public function configure(Resolver $schema)
+    public function configure(Resolver $schema): void
     {
     }
 
     /**
      * {@inheritDoc}
      */
-    public function load(ContainerBuilder $container)
+    public function load(ContainerBuilder $container): void
     {
         $container->register('completion_rpc.handler', function (Container $container) {
             return new CompleteHandler($container->get(CompletionExtension::SERVICE_REGISTRY));
